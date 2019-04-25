@@ -303,9 +303,11 @@ firewall-cmd --reload
 #
 #master崩溃导致二进制日志损坏，在从服务器使用参数忽略：sql_slave_skip_counter = 0
 
-
-
-
+#在线安全的清空慢查询日志
+#set global slow_query_log=0;
+#show variables like '%slow%';
+#set global slow_query_log_file='/usr/local/mysql/data/zabbixserver-slow.log';
+#set global slow_query_log=1;
 
 
 
