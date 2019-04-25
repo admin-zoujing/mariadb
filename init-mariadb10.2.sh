@@ -66,6 +66,7 @@ character-set-client-handshake = FALSE
 character-set-server = utf8mb4 
 collation-server = utf8mb4_unicode_ci
 init_connect = 'SET NAMES utf8mb4'
+lower_case_table_names = 0
 sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 EOF
 chown -Rf mariadb:mariadb /usr/local/mariadb
