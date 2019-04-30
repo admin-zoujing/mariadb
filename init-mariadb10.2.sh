@@ -59,15 +59,30 @@ datadir = /usr/local/mariadb/data
 tmpdir = /tmp
 user = mariadb
 log-error = /usr/local/mariadb/logs/mariadb.log
-#server-id = 1 
-#log-bin = mysql-bin
-#max_allowed_packet = 32M
+slow_query_log = ON
+long_query_time = 1
+server-id = 1 
+log-bin = mysql-bin
+binlog-format=ROW
+#max_allowed_packet = 64M
+max_connections=1000
+log_bin_trust_function_creators=1
 character-set-client-handshake = FALSE
 character-set-server = utf8mb4 
 collation-server = utf8mb4_unicode_ci
 init_connect = 'SET NAMES utf8mb4'
 lower_case_table_names = 0
 sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+bulk_insert_buffer_size = 100M
+# -------------- #
+# InnoDB Options #
+# -------------- #
+innodb_buffer_pool_size = 4G
+innodb_log_buffer_size = 16M
+innodb_log_file_size = 256M
+max_binlog_cache_size = 2G
+max_binlog_size = 1G
+expire_logs_days = 7
 EOF
 chown -Rf mariadb:mariadb /usr/local/mariadb
 
