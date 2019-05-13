@@ -60,7 +60,7 @@ chmod a+x /home/mysql/mysqldump.sh
 ###2、开启定时任务  
 cat >> /etc/crontab <<EOF
 #每天凌晨一次的全备份 
-30 1 * * * root /home/mysql/mysqldump.sh > /dev/null 2>&1 
+50 1 * * * root /home/mysql/mysqldump.sh > /dev/null 2>&1 
 EOF
 crontab /etc/crontab
 crontab -l
