@@ -161,9 +161,9 @@ chmod a+x  /home/mysql/innobackupex_incrementbackupdata.sh
 ###3、开启定时任务  
 cat >> /etc/crontab <<EOF
 #每周六凌晨一次的全备份 
-10 2 * * 6 root /home/mysql/innobackupex_fullbackupdata.sh > /dev/null 2>&1 
+10 0 * * 6 root /home/mysql/innobackupex_fullbackupdata.sh > /dev/null 2>&1 
 #每天一次的全增量（以全备份为基础的增量），每两个小时一次的增量备份（以全增量为基础的增量）
-* 1-23/2 * * * root /home/mysql/innobackupex_incrementbackupdata.sh > /dev/null 2>&1 
+30 0-23/2 * * * root /home/mysql/innobackupex_incrementbackupdata.sh > /dev/null 2>&1 
 EOF
 crontab /etc/crontab
 crontab -l
